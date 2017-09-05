@@ -1,13 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react'
+import PropTypes from 'proptypes'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        hello world
-      </div>
-    );
-  }
+const App = props => (
+  <div className="App">
+    <div className="App-header">
+      <h2>Welcome to the world</h2>
+    </div>
+    <section className="App-body">
+      {props.children}
+    </section>
+  </div>
+)
+
+App.prototype = {
+  children: PropTypes.node
 }
 
-export default App;
+export default App
