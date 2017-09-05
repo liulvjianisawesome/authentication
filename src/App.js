@@ -12,7 +12,7 @@ const App = props => (
   </div>
 )
 
-App.prototype = {
+App.propTypes = {
   children: PropTypes.node
 }
 
