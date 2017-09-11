@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'proptypes'
 
+import './App.css'
+
 const App = props => (
   <div className="App">
     <div className="App-header">

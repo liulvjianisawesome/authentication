@@ -4,6 +4,9 @@ import { reduxForm, Field } from 'redux-form'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
+import Messages from '../notifications/Messages'
+import Errors from '../notifications/Errors'
+
 import signupRequest from './action'
 
 class Signup extends Component {
@@ -59,7 +62,29 @@ class Signup extends Component {
         </form>
         <div className="auth-messages">
           {
+            !requesting && !!errors.length && (
+              <Errors message="Failure to signup due to:" errors={errors} />
+            )
+          }
 
+          {
+            !requesting && !!message.length && (
+              <Messages message={message} />
+            )
+          }
+
+          {
+            !requesting && successful && (
+              <div>
+                Signup Successful! <Link to="/login">Click here to login</Link>
+              </div>
+            )
+          }
+
+          {
+            !requesting && !successful && (
+              <Link to="/login">Already a Widgeter? Login Here »</Link>
+            )
           }
         </div>
       </div>
